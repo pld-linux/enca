@@ -1,12 +1,12 @@
 Summary:	Extremely Naive Charset Analyser
 Summary(pl):	Skrajnie naiwny analizator zestawów znaków
 Name:		enca
-Version:	1.5
+Version:	1.6
 Release:	1
 License:	GPL v2
 Group:		Libraries
 Source0:	http://trific.ath.cx/Ftp/enca/%{name}-%{version}.tar.bz2
-# Source0-md5:	418d6e5bf9231a69b93756227d466e3f
+# Source0-md5:	86a2e2242d38d8e56877fd1344194d69
 URL:		http://trific.ath.cx/software/enca/
 BuildRequires:	automake
 BuildRequires:	recode-devel
