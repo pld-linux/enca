@@ -1,12 +1,12 @@
 Summary:	Extremely Naive Charset Analyser
 Summary(pl):	Skrajnie naiwny analizator zestawów znaków
 Name:		enca
-Version:	1.6
+Version:	1.7
 Release:	1
 License:	GPL v2
 Group:		Libraries
 Source0:	http://trific.ath.cx/Ftp/enca/%{name}-%{version}.tar.bz2
-# Source0-md5:	86a2e2242d38d8e56877fd1344194d69
+# Source0-md5:	01dd5dbd4154c85cbf4a42d3580c517f
 URL:		http://trific.ath.cx/software/enca/
 BuildRequires:	automake
 BuildRequires:	recode-devel
@@ -46,7 +46,7 @@ wykorzystywana przez inne programy.
 Summary:	Header files for ENCA library
 Summary(pl):	Pliki nag³ówkowe biblioteki ENCA
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for ENCA library.
@@ -58,7 +58,7 @@ Pliki nag³ówkowe biblioteki ENCA.
 Summary:	Static ENCA library
 Summary(pl):	Statyczna biblioteka ENCA
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static ENCA library.
