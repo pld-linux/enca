@@ -1,3 +1,7 @@
+
+# Conditional build:
+%bcond_without	recode	# build without recode support
+
 Summary:	Extremely Naive Charset Analyser
 Summary(pl):	Skrajnie naiwny analizator zestawów znaków
 Name:		enca
@@ -9,7 +13,7 @@ Source0:	http://trific.ath.cx/Ftp/enca/%{name}-%{version}.tar.bz2
 # Source0-md5:	01dd5dbd4154c85cbf4a42d3580c517f
 URL:		http://trific.ath.cx/software/enca/
 BuildRequires:	automake
-BuildRequires:	recode-devel
+%{?with_recode:BuildRequires:	recode-devel}
 Requires:	/bin/mktemp
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
