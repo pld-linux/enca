@@ -1,7 +1,7 @@
-
+#
 # Conditional build:
 %bcond_without	recode	# build without recode support
-
+#
 Summary:	Extremely Naive Charset Analyser
 Summary(pl):	Skrajnie naiwny analizator zestawów znaków
 Name:		enca
