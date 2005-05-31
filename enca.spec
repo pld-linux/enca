@@ -12,7 +12,9 @@ Group:		Libraries
 Source0:	http://trific.ath.cx/Ftp/enca/%{name}-%{version}.tar.bz2
 # Source0-md5:	01dd5dbd4154c85cbf4a42d3580c517f
 URL:		http://trific.ath.cx/software/enca/
+BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	iconv
 %{?with_recode:BuildRequires:	recode-devel}
 Requires:	/bin/mktemp
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -75,6 +77,7 @@ Statyczna biblioteka ENCA.
 
 %build
 cp -f /usr/share/automake/config.sub .
+%{__autoconf}
 %configure \
 	MKTEMP_PROG=/bin/mktemp \
 	--with-html-dir=%{_gtkdocdir}
