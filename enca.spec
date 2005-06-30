@@ -104,7 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog FAQ NEWS README THANKS TODO
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
-%attr(755,root,root) %{_libdir}/enca
+%attr(755,root,root) %{_libexecdir}/enca
 %{_mandir}/man1/*
 
 %files devel
