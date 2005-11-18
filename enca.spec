@@ -6,7 +6,7 @@ Summary:	Extremely Naive Charset Analyser
 Summary(pl):	Skrajnie naiwny analizator zestawów znaków
 Name:		enca
 Version:	1.7
-Release:	1
+Release:	1.1
 License:	GPL v2
 Group:		Libraries
 Source0:	http://trific.ath.cx/Ftp/enca/%{name}-%{version}.tar.bz2
@@ -17,6 +17,7 @@ BuildRequires:	automake
 BuildRequires:	iconv
 %{?with_recode:BuildRequires:	recode-devel}
 Requires:	/bin/mktemp
+Requires:	%{name}-libs = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -30,9 +31,6 @@ Estonian, Latvian, Lithuanian, Polish, Russian, Slovak, Slovene, and
 Ukrainian and some multibyte encodings (mostly variants of Unicode)
 independently on the language.
 
-This package also contains shared Enca library other programs can make
-use of.
-
 %description -l pl
 Enca to Extremely Naive Charset Analyser (skrajnie naiwny analizator
 zestawów znaków). Wykrywa zestaw znaków i kodowanie plików tekstowych,
@@ -45,6 +43,15 @@ czeskie, estoñskie, litewskie, ³otewskie, polskie, rosyjskie,
 s³owackie, s³oweñskie i ukraiñskie oraz niektóre kodowania
 wielobajtowe (g³ównie warianty unikodu) niezale¿nie od jêzyka.
 
+%package libs
+Summary:	Shared Enca library
+Group:		Libraries
+
+%description libs
+This package contains shared Enca library other programs can make use
+of.
+
+%description libs -l pl
 Ten pakiet zawiera tak¿e bibliotekê wspó³dzielon± Enca, która mo¿e byæ
 wykorzystywana przez inne programy.
 
