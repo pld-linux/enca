@@ -45,6 +45,7 @@ wielobajtowe (g³ównie warianty unikodu) niezale¿nie od jêzyka.
 
 %package libs
 Summary:	Shared Enca library
+Summary(pl):	Biblioteka wspó³dzielona Enca
 Group:		Libraries
 
 %description libs
@@ -52,14 +53,14 @@ This package contains shared Enca library other programs can make use
 of.
 
 %description libs -l pl
-Ten pakiet zawiera tak¿e bibliotekê wspó³dzielon± Enca, która mo¿e byæ
+Ten pakiet zawiera bibliotekê wspó³dzielon± Enca, która mo¿e byæ
 wykorzystywana przez inne programy.
 
 %package devel
 Summary:	Header files for ENCA library
 Summary(pl):	Pliki nag³ówkowe biblioteki ENCA
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
+Requires:	%{name}-libs = %{version}-%{release}
 
 %description devel
 Header files for ENCA library.
