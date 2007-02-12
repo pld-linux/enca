@@ -3,7 +3,7 @@
 %bcond_without	recode	# build without recode support
 #
 Summary:	Extremely Naive Charset Analyser
-Summary(pl.UTF-8):   Skrajnie naiwny analizator zestawów znaków
+Summary(pl.UTF-8):	Skrajnie naiwny analizator zestawów znaków
 Name:		enca
 Version:	1.9
 Release:	2
@@ -46,7 +46,7 @@ wielobajtowe (głównie warianty unikodu) niezależnie od języka.
 
 %package libs
 Summary:	Shared Enca library
-Summary(pl.UTF-8):   Biblioteka współdzielona Enca
+Summary(pl.UTF-8):	Biblioteka współdzielona Enca
 Group:		Libraries
 
 %description libs
@@ -59,7 +59,7 @@ wykorzystywana przez inne programy.
 
 %package devel
 Summary:	Header files for ENCA library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki ENCA
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki ENCA
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
 
@@ -71,7 +71,7 @@ Pliki nagłówkowe biblioteki ENCA.
 
 %package static
 Summary:	Static ENCA library
-Summary(pl.UTF-8):   Statyczna biblioteka ENCA
+Summary(pl.UTF-8):	Statyczna biblioteka ENCA
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
