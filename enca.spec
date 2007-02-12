@@ -3,7 +3,7 @@
 %bcond_without	recode	# build without recode support
 #
 Summary:	Extremely Naive Charset Analyser
-Summary(pl):	Skrajnie naiwny analizator zestawów znaków
+Summary(pl.UTF-8):   Skrajnie naiwny analizator zestawÃ³w znakÃ³w
 Name:		enca
 Version:	1.9
 Release:	2
@@ -32,53 +32,53 @@ Estonian, Latvian, Lithuanian, Polish, Russian, Slovak, Slovene, and
 Ukrainian and some multibyte encodings (mostly variants of Unicode)
 independently on the language.
 
-%description -l pl
+%description -l pl.UTF-8
 Enca to Extremely Naive Charset Analyser (skrajnie naiwny analizator
-zestawów znaków). Wykrywa zestaw znaków i kodowanie plików tekstowych,
-mo¿e tak¿e konwertowaæ do innych kodowañ przy u¿yciu wbudowanego
-konwertera lub zewnêtrznych bibliotek i narzêdzi takich jak libiconv,
+zestawÃ³w znakÃ³w). Wykrywa zestaw znakÃ³w i kodowanie plikÃ³w tekstowych,
+moÅ¼e takÅ¼e konwertowaÄ‡ do innych kodowaÅ„ przy uÅ¼yciu wbudowanego
+konwertera lub zewnÄ™trznych bibliotek i narzÄ™dzi takich jak libiconv,
 librecode czy cstocs.
 
-Aktualnie obs³ugiwane s± znaki bia³oruskie, bu³garskie, chorwackie,
-czeskie, estoñskie, litewskie, ³otewskie, polskie, rosyjskie,
-s³owackie, s³oweñskie i ukraiñskie oraz niektóre kodowania
-wielobajtowe (g³ównie warianty unikodu) niezale¿nie od jêzyka.
+Aktualnie obsÅ‚ugiwane sÄ… znaki biaÅ‚oruskie, buÅ‚garskie, chorwackie,
+czeskie, estoÅ„skie, litewskie, Å‚otewskie, polskie, rosyjskie,
+sÅ‚owackie, sÅ‚oweÅ„skie i ukraiÅ„skie oraz niektÃ³re kodowania
+wielobajtowe (gÅ‚Ã³wnie warianty unikodu) niezaleÅ¼nie od jÄ™zyka.
 
 %package libs
 Summary:	Shared Enca library
-Summary(pl):	Biblioteka wspó³dzielona Enca
+Summary(pl.UTF-8):   Biblioteka wspÃ³Å‚dzielona Enca
 Group:		Libraries
 
 %description libs
 This package contains shared Enca library other programs can make use
 of.
 
-%description libs -l pl
-Ten pakiet zawiera bibliotekê wspó³dzielon± Enca, która mo¿e byæ
+%description libs -l pl.UTF-8
+Ten pakiet zawiera bibliotekÄ™ wspÃ³Å‚dzielonÄ… Enca, ktÃ³ra moÅ¼e byÄ‡
 wykorzystywana przez inne programy.
 
 %package devel
 Summary:	Header files for ENCA library
-Summary(pl):	Pliki nag³ówkowe biblioteki ENCA
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe biblioteki ENCA
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
 
 %description devel
 Header files for ENCA library.
 
-%description devel -l pl
-Pliki nag³ówkowe biblioteki ENCA.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe biblioteki ENCA.
 
 %package static
 Summary:	Static ENCA library
-Summary(pl):	Statyczna biblioteka ENCA
+Summary(pl.UTF-8):   Statyczna biblioteka ENCA
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static ENCA library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka ENCA.
 
 %prep
