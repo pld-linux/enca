@@ -1,12 +1,13 @@
 #
 # Conditional build:
+%bcond_without	apidocs	# disable gtk-doc
 %bcond_without	recode	# build without recode support
 #
 Summary:	Extremely Naive Charset Analyser
 Summary(pl.UTF-8):	Skrajnie naiwny analizator zestawów znaków
 Name:		enca
 Version:	1.9
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Libraries
 Source0:	http://trific.ath.cx/Ftp/enca/%{name}-%{version}.tar.bz2
@@ -15,6 +16,7 @@ Patch0:		%{name}-libdir.patch
 URL:		http://trific.ath.cx/software/enca/
 BuildRequires:	autoconf
 BuildRequires:	automake
+%{?with_apidocs:BuildRequires: gtk-doc >= 1.0}
 BuildRequires:	iconv
 %{?with_recode:BuildRequires:	recode-devel}
 Requires:	/bin/mktemp
@@ -81,6 +83,18 @@ Static ENCA library.
 %description static -l pl.UTF-8
 Statyczna biblioteka ENCA.
 
+%package apidocs
+Summary:	ENCA library API documentation
+Summary(pl.UTF-8):	Dokumentacja API biblioteki ENCA
+Group:		Documentation
+Requires:	gtk-doc-common
+
+%description apidocs
+ENCA library API documentation.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API biblioteki ENCA.
+
 %prep
 %setup -q
 %patch0 -p1
@@ -90,6 +104,7 @@ cp -f /usr/share/automake/config.sub .
 %{__autoconf}
 %configure \
 	MKTEMP_PROG=/bin/mktemp \
+	--%{?with_apidocs:en}%{!?with_apidocs:dis}able-gtk-doc \
 	--with-html-dir=%{_gtkdocdir}
 
 %{__make}
@@ -102,6 +117,8 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_mandir}/man1/enconv.1
 echo '.so enca.1' > $RPM_BUILD_ROOT%{_mandir}/man1/enconv.1
+
+%{!?with_apidocs:rm -rf $RPM_BUILD_ROOT%{_gtkdocdir}}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -127,8 +144,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/lib*.la
 %{_includedir}/*.h
 %{_pkgconfigdir}/*.pc
-%{_gtkdocdir}/libenca
 
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
+
+%if %{with apidocs}
+%files apidocs
+%defattr(644,root,root,755)
+%{_gtkdocdir}/libenca
+%endif
