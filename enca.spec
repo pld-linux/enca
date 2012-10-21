@@ -6,16 +6,16 @@
 Summary:	Extremely Naive Charset Analyser
 Summary(pl.UTF-8):	Skrajnie naiwny analizator zestawów znaków
 Name:		enca
-Version:	1.9
-Release:	3
+Version:	1.14
+Release:	1
 License:	GPL v2
 Group:		Libraries
-Source0:	http://trific.ath.cx/Ftp/enca/%{name}-%{version}.tar.bz2
-# Source0-md5:	b3581e28d68d452286fb0bfe58bed3b3
+Source0:	http://dl.cihar.com/enca/%{name}-%{version}.tar.bz2
+# Source0-md5:	03792f25aed003d3ea33b3ce1be1f256
 Patch0:		%{name}-libdir.patch
-URL:		http://trific.ath.cx/software/enca/
-BuildRequires:	autoconf
-BuildRequires:	automake
+URL:		http://cihar.com/software/enca/
+BuildRequires:	autoconf >= 2.52
+BuildRequires:	automake >= 1:1.8
 %{?with_apidocs:BuildRequires: gtk-doc >= 1.0}
 BuildRequires:	iconv
 %{?with_recode:BuildRequires:	recode-devel}
@@ -115,7 +115,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_mandir}/man1/enconv.1
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/man1/enconv.1
 echo '.so enca.1' > $RPM_BUILD_ROOT%{_mandir}/man1/enconv.1
 
 %{!?with_apidocs:rm -rf $RPM_BUILD_ROOT%{_gtkdocdir}}
@@ -129,25 +129,28 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog FAQ NEWS README THANKS TODO
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/enca
+%attr(755,root,root) %{_bindir}/enconv
 %attr(755,root,root) %{_libexecdir}/enca
-%{_mandir}/man1/*
+%{_mandir}/man1/enca.1*
+%{_mandir}/man1/enconv.1*
 
 %files libs
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %{_libdir}/libenca.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libenca.so.0
 
 %files devel
 %defattr(644,root,root,755)
 %doc README.devel
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_includedir}/*.h
-%{_pkgconfigdir}/*.pc
+%attr(755,root,root) %{_libdir}/libenca.so
+%{_libdir}/libenca.la
+%{_includedir}/enca.h
+%{_pkgconfigdir}/enca.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libenca.a
 
 %if %{with apidocs}
 %files apidocs
