@@ -2,12 +2,12 @@
 # Conditional build:
 %bcond_without	apidocs	# disable gtk-doc
 %bcond_without	recode	# build without recode support
-#
+
 Summary:	Extremely Naive Charset Analyser
 Summary(pl.UTF-8):	Skrajnie naiwny analizator zestawów znaków
 Name:		enca
 Version:	1.15
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Libraries
 Source0:	http://dl.cihar.com/enca/%{name}-%{version}.tar.bz2
@@ -16,11 +16,11 @@ Patch0:		%{name}-libdir.patch
 URL:		http://cihar.com/software/enca/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.8
-%{?with_apidocs:BuildRequires: gtk-doc >= 1.0}
+%{?with_apidocs:BuildRequires:	gtk-doc >= 1.0}
 BuildRequires:	iconv
 %{?with_recode:BuildRequires:	recode-devel}
-Requires:	/bin/mktemp
 Requires:	%{name}-libs = %{version}-%{release}
+Requires:	/bin/mktemp
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -88,6 +88,9 @@ Summary:	ENCA library API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki ENCA
 Group:		Documentation
 Requires:	gtk-doc-common
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 ENCA library API documentation.
