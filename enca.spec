@@ -6,19 +6,20 @@
 Summary:	Extremely Naive Charset Analyser
 Summary(pl.UTF-8):	Skrajnie naiwny analizator zestawów znaków
 Name:		enca
-Version:	1.15
-Release:	3
+Version:	1.16
+Release:	1
 License:	GPL v2
 Group:		Libraries
-Source0:	http://dl.cihar.com/enca/%{name}-%{version}.tar.bz2
-# Source0-md5:	fef132969d26e649719eae08297a4a52
-Patch0:		%{name}-libdir.patch
+Source0:	http://dl.cihar.com/enca/%{name}-%{version}.tar.xz
+# Source0-md5:	0a1483530b1fdb9e2a54786489ee0b69
 URL:		http://cihar.com/software/enca/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.8
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.0}
 BuildRequires:	iconv
 %{?with_recode:BuildRequires:	recode-devel}
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	/bin/mktemp
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -100,14 +101,13 @@ Dokumentacja API biblioteki ENCA.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 cp -f /usr/share/automake/config.sub .
 %{__autoconf}
 %configure \
 	MKTEMP_PROG=/bin/mktemp \
-	--%{?with_apidocs:en}%{!?with_apidocs:dis}able-gtk-doc \
+	--enable-gtk-doc%{!?with_apidocs:=no} \
 	--with-html-dir=%{_gtkdocdir}
 
 %{__make}
