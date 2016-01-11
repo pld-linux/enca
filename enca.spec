@@ -6,17 +6,18 @@
 Summary:	Extremely Naive Charset Analyser
 Summary(pl.UTF-8):	Skrajnie naiwny analizator zestawów znaków
 Name:		enca
-Version:	1.16
+Version:	1.18
 Release:	1
 License:	GPL v2
 Group:		Libraries
 Source0:	http://dl.cihar.com/enca/%{name}-%{version}.tar.xz
-# Source0-md5:	0a1483530b1fdb9e2a54786489ee0b69
+# Source0-md5:	a139a6ba811c375f50947f9c547b3306
 URL:		http://cihar.com/software/enca/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.8
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.0}
 BuildRequires:	iconv
+BuildRequires:	libtool
 %{?with_recode:BuildRequires:	recode-devel}
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -103,8 +104,11 @@ Dokumentacja API biblioteki ENCA.
 %setup -q
 
 %build
-cp -f /usr/share/automake/config.sub .
+%{__libtoolize}
+%{__aclocal} -I m4
 %{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure \
 	MKTEMP_PROG=/bin/mktemp \
 	--enable-gtk-doc%{!?with_apidocs:=no} \
@@ -145,7 +149,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc README.devel
+%doc DEVELOP.md
 %attr(755,root,root) %{_libdir}/libenca.so
 %{_libdir}/libenca.la
 %{_includedir}/enca.h
