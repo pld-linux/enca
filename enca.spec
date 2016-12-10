@@ -6,12 +6,12 @@
 Summary:	Extremely Naive Charset Analyser
 Summary(pl.UTF-8):	Skrajnie naiwny analizator zestawów znaków
 Name:		enca
-Version:	1.18
+Version:	1.19
 Release:	1
 License:	GPL v2
 Group:		Libraries
 Source0:	http://dl.cihar.com/enca/%{name}-%{version}.tar.xz
-# Source0-md5:	a139a6ba811c375f50947f9c547b3306
+# Source0-md5:	a7a0c152658e012db701a48ae8b79525
 URL:		http://cihar.com/software/enca/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.8
